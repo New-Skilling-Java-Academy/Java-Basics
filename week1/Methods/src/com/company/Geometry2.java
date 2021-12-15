@@ -18,6 +18,15 @@ public class Geometry2 {
 
         System.out.printf("The perimeter of your %dx%d rectangle is %d\n",
                 width, height, perimeter);
+
+        int x = 2;
+
+        int sideA = squareArea(x);
+        int sideB = squareArea(x);
+        int p = rectanglePerimeter(sideA, sideB);
+
+        System.out.println(p);
+
     }
 
     public static int rectanglePerimeter(int width, int height) {
