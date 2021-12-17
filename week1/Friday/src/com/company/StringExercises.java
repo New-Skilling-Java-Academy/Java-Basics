@@ -22,7 +22,7 @@ public class StringExercises {
 
         // Palindrome:
         // Ask the user for a word
-        // Tell the user if it's a palindrom or not:
+        // Tell the user if it's a palindrome or not:
         // bob
 
         // Bonus Palindrome:
