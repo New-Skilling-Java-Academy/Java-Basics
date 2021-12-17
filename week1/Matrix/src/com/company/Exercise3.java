@@ -27,6 +27,34 @@ public class Exercise3 {
 
 
     public static void main(String[] args) {
+        int[][] matrix = Main.createRandomMatrix(3, 2);
+
+        for (int row = 0; row < matrix.length; row++) {
+            int total = 0;
+            for (int col = 0; col < matrix[row].length; col++) {
+                if (col > 0) {
+                    System.out.print(" +");
+                }
+                System.out.printf(" %2d", matrix[row][col]);
+
+                total += matrix[row][col];
+            }
+            System.out.println(" = " + total);
+        }
+
+        System.out.println("  ---------------------");
+
+        int[] totalCol = new int[matrix[0].length];
+
+        for (int row = 0; row < matrix.length; row++) {
+            for (int col = 0; col < matrix[row].length; col++) {
+                totalCol[col] += matrix[row][col];
+            }
+        }
+
+        for (int i = 0; i < totalCol.length; i++) {
+            System.out.printf("%3d", totalCol[i]);
+        }
 
     }
 }
