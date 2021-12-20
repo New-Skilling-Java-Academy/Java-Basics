@@ -17,7 +17,7 @@ public class Strings {
 //        System.out.println(Arrays.toString(nameArray));
 //        nameArray[0] = 'h';
 //        System.out.println(Arrays.toString(nameArray));
-//
+
 
 
 //        char[] nameArray1 = {'H', 'e', 'l', 'l', 'o'};

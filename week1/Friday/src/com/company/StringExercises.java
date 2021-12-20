@@ -3,6 +3,18 @@ package com.company;
 public class StringExercises {
 
     public static void main(String[] args) {
+        int firstNumber = 0;
+        int secondNumber = 1;
+        for (int i = 0; i < 20; i++) {
+            int nextNumber = firstNumber + secondNumber;
+            firstNumber = secondNumber;
+            secondNumber = nextNumber;
+            System.out.println(nextNumber);
+            int[] a = {nextNumber};
+            System.out.println(a[i]);
+        }
+
+
         // Letter Counter:
         // Ask the user for a word
         // Ask the user for a letter
