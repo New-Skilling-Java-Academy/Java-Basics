@@ -17,6 +17,10 @@ public class EuroMillions {
         // - fill them out with random numbers
         // - the numbers should not repeat... do that
         // - now the same for stars, should be just copy and paste
+
+        // BONUS
+        // - output the result as a sorted String
+        
     }
 
 }
