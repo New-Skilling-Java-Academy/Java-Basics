@@ -1,5 +1,8 @@
 package exercises.arrays;
 
+import java.util.Arrays;
+import java.util.concurrent.ThreadLocalRandom;
+
 public class EuroMillions {
 
     public static void main(String[] args) {
@@ -20,7 +23,33 @@ public class EuroMillions {
 
         // BONUS
         // - output the result as a sorted String
-        
+
+//        int[] numbers = {50, 22, 3, 0, 0};
+        int[] numbers = new int[5];
+
+        for (int i = 0; i < numbers.length; i++) {
+            int possibleNumber = generateRandom(1, 5);
+            while (itExists(numbers, possibleNumber)) {
+                possibleNumber = generateRandom(1,5);
+            }
+            numbers[i] = possibleNumber;
+        }
+
+        System.out.println(Arrays.toString(numbers));
+    }
+
+    public static int generateRandom(int min, int max) {
+        int number = ThreadLocalRandom.current().nextInt(min, max + 1);
+        return number;
+    }
+
+    public static boolean itExists(int[] haystack, int needle) {
+        for (int i = 0; i < haystack.length; i++) {
+            if (haystack[i] == needle) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
