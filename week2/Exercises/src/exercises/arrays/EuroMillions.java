@@ -25,6 +25,7 @@ public class EuroMillions {
         // BONUS
         // - output the result as a sorted String
 
+        // Let's find out how many times it takes for a Generated Key to appear again
         String originalKey = euroMillions();
 
         int counter = 0;
