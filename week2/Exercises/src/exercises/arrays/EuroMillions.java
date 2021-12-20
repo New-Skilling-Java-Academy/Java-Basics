@@ -1,5 +1,6 @@
 package exercises.arrays;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -24,18 +25,65 @@ public class EuroMillions {
         // BONUS
         // - output the result as a sorted String
 
-//        int[] numbers = {50, 22, 3, 0, 0};
-        int[] numbers = new int[5];
+        String originalKey = euroMillions();
+
+        int counter = 0;
+        while (true) {
+            counter++;
+            if (counter % 10_000_000 == 0) {
+                System.out.println(counter / 1_000_000);
+            }
+
+            String newKey = euroMillions();
+            if (newKey.equals(originalKey)) {
+                break;
+            }
+        }
+        System.out.printf("It took %d tries to find the key %s again\n", counter, originalKey);
+
+    }
+
+    public static String euroMillions() {
+        int[] numbers = generateRandomArray(1, 50, 5);
+        int[] stars = generateRandomArray(1, 12, 2);
+
+        String result = "";
 
         for (int i = 0; i < numbers.length; i++) {
-            int possibleNumber = generateRandom(1, 5);
-            while (itExists(numbers, possibleNumber)) {
-                possibleNumber = generateRandom(1,5);
+            if (i > 0) {
+                result += ", ";
             }
+            result += numbers[i];
+        }
+
+        result += " - ";
+
+        for (int i = 0; i < stars.length; i++) {
+            if (i > 0) {
+                result += ", ";
+            }
+            result += stars[i];
+        }
+
+        return result;
+    }
+
+    public static int[] generateRandomArray(int min, int max, int size) {
+        int[] numbers = new int[size];
+
+        for (int i = 0; i < numbers.length; i++) {
+            int possibleNumber;
+
+            do {
+                possibleNumber = generateRandom(min, max);
+            } while (itExists(numbers, possibleNumber));
+
             numbers[i] = possibleNumber;
         }
 
-        System.out.println(Arrays.toString(numbers));
+        Arrays.sort(numbers);
+
+        return numbers;
     }
 
     public static int generateRandom(int min, int max) {
